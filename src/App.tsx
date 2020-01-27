@@ -1,26 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components'
+import { useSelector } from 'react-redux';
+import { ReducerStateType } from './types/reducer';
+import PrivateRouteComponent from './routes/privateRoute';
+import PublicRouteComponent from './routes/publicRoute';
+
 
 const App: React.FC = () => {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+  const isLoggedIn: boolean = useSelector((state: ReducerStateType) => state.user.isLoggedIn)
+
+  if (isLoggedIn) {
+    return <PrivateRouteComponent />
+  } else {
+    return <PublicRouteComponent />
+  }
+
 }
 
 export default App;
