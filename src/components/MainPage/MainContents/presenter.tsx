@@ -1,17 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import LeftSideBar from '../LeftSideBar'
-import Main from './MainContents'
+import NavigationToggleButton from './NavigationToggleButton'
 
 const Container = styled.div`
-    display:flex;
-    height:100vh;
+    width:100%;
+    position:relative;
 `
 
 const Presenter: React.FC = () => {
     return <Container>
-        <LeftSideBar />
-        <Main />
+        <NavigationToggleButton />
     </Container>
 }
 

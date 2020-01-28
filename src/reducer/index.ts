@@ -3,13 +3,15 @@ import thunk from 'redux-thunk'
 import user from './user'
 import dialog from './dialog'
 import loading from './loading'
+import leftNavigationBar from './leftNavigationBar'
 
 const intialState = {}
 
 const allReducers = combineReducers({
     user,
     dialog,
-    loading
+    loading,
+    leftNavigationBar
 })
 
 // @ts-ignore

@@ -2,7 +2,17 @@ import { Dispatch } from "react";
 import axios from 'axios'
 import { DONGGYU_ENDPOINT } from "../consts/endPoint";
 import { ReducerUserType } from "../types/reducer";
-import { DIALOG_ON, USER_LOGIN, LOADING_ON, LOADING_OFF } from "./types";
+import { DIALOG_ON, USER_LOGIN, LOADING_ON, LOADING_OFF, USER_LOGOUT } from "./types";
+
+interface IUserLogoutDispatch {
+    type: string
+}
+
+export const userLogout = (dispatch: Dispatch<IUserLogoutDispatch>) => {
+    dispatch({
+        type: USER_LOGOUT
+    })
+}
 
 interface IUserLoginDispatch {
     type: string

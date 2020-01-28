@@ -1,5 +1,5 @@
 import { ReducerUserType } from '../types/reducer'
-import { USER_LOGIN } from '../actions/types'
+import { USER_LOGIN, USER_LOGOUT } from '../actions/types'
 
 interface ActionType {
     type: string
@@ -19,8 +19,22 @@ export default function (state: ReducerUserType = initialState, action: ActionTy
     switch (action.type) {
         case USER_LOGIN:
             return userLogin(state, action)
+        case USER_LOGOUT:
+            return userLogout(state, action)
         default:
             return state
+    }
+}
+
+function userLogout(state: ReducerUserType, action: ActionType): ReducerUserType {
+
+    localStorage.removeItem('token')
+    return {
+        isLoggedIn: false,
+        email: "",
+        name: "",
+        phone: "",
+        authorities: []
     }
 }
 
