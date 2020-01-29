@@ -4,6 +4,8 @@ import user from './user'
 import dialog from './dialog'
 import loading from './loading'
 import leftNavigationBar from './leftNavigationBar'
+import location from './location'
+import workspace from './workspace'
 
 const intialState = {}
 
@@ -11,7 +13,9 @@ const allReducers = combineReducers({
     user,
     dialog,
     loading,
-    leftNavigationBar
+    leftNavigationBar,
+    location,
+    workspace
 })
 
 // @ts-ignore

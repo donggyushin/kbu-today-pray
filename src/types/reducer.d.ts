@@ -24,9 +24,22 @@ export interface ReducerLeftNavigationBar {
     first: boolean
 }
 
+export interface ReducerLocationType {
+    current: string
+}
+
+export interface ReducerWorkspaceType {
+    current: CURRENT_TYPE
+}
+
 export interface ReducerStateType {
     user: ReducerUserType
     dialog: ReducerDialogType
     loading: ReducerLoadingType
     leftNavigationBar: ReducerLeftNavigationBar
+    location: ReducerLocationType
+    workspace: ReducerWorkspaceType
 }
+
+
+export type CURRENT_TYPE = "POST" | "VIEW"

@@ -72,28 +72,22 @@ const Presenter: React.FC = () => {
     const first: boolean = sideNaviReducer.first
     if (first) {
         return <Container>
-            <Button />
-            <Button />
-            <Button />
-            <Button />
+            <Button label="POST" name="POST" />
+            <Button label="VIEW" name="VIEW" />
             <LogoutButton />
         </Container>
 
     } else {
         if (open) {
             return <ContainerOpening>
-                <Button />
-                <Button />
-                <Button />
-                <Button />
+                <Button label="POST" name="POST" />
+                <Button label="VIEW" name="VIEW" />
                 <LogoutButton />
             </ContainerOpening>
         } else {
             return <ContainerClosing>
-                <Button />
-                <Button />
-                <Button />
-                <Button />
+                <Button label="POST" name="POST" />
+                <Button label="VIEW" name="VIEW" />
                 <LogoutButton />
             </ContainerClosing>
         }
