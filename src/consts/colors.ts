@@ -1,4 +1,4 @@
-const ELECTRON_BLUE = '#0984e3'
+const ELECTRON_BLUE = '#34495e'
 const BLURPLE = '#4834d4'
 
 const COLORS = {
