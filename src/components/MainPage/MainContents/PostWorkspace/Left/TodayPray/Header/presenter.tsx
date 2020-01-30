@@ -10,12 +10,25 @@ const Container = styled.div`
     justify-content:center;
 `
 
-const Presenter: React.FC = () => {
+interface IProps {
+    pray: string
+    handleTodayPray: (event: React.ChangeEvent<HTMLInputElement>) => void
+    onEnterPress: (event: React.KeyboardEvent<HTMLInputElement>) => void
+}
+
+const Presenter: React.FC<IProps> = ({
+    pray,
+    handleTodayPray,
+    onEnterPress
+}) => {
     return <Container>
         <TextField
             style={{
                 width: '100%'
             }}
+            value={pray}
+            onChange={handleTodayPray}
+            onKeyPress={onEnterPress}
             id="standard-basic" label="오늘의 기도" />
     </Container>
 }

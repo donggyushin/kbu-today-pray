@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import Cell from './Cell'
 
 const Container = styled.div`
     overflow-y: scroll;
@@ -8,9 +7,26 @@ const Container = styled.div`
     flex-direction: column;
 `
 
-const Presenter: React.FC = () => {
-    return <Container>
-        <Cell />
+const Text = styled.div`
+    padding-left:7px;
+    margin-top:7px;
+`
+
+interface IProps {
+    prays: string[]
+}
+
+
+
+const Presenter: React.FC<IProps> = ({
+    prays
+}) => {
+    return <Container id="todaypraybody">
+        {prays.map((pray, i) => {
+            return <Text key={i}>
+                {pray}
+            </Text>
+        })}
     </Container>
 }
 

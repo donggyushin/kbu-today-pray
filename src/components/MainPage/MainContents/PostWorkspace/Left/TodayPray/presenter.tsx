@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import ShadowBoxType from '../../../../../../consts/shadowbox'
 import Header from './Header'
 import Body from './Body'
 import Bottom from './Bottom'
+import { animateScroll } from 'react-scroll'
 
 const Container = styled.div`
     width:100%;
@@ -28,13 +29,46 @@ const Card = styled.div`
 
 
 const Presenter: React.FC = () => {
+
+    const [prays, setPrays] = useState<string[]>([])
+    const [pray, setPray] = useState("")
+
+    useEffect(() => {
+        scrollToBottom()
+    }, [prays])
+
     return <Container>
         <Card>
-            <Header />
-            <Body />
+            <Header pray={pray} handleTodayPray={handleTodayPray} onEnterPress={onEnterPress} />
+            <Body prays={prays} />
             <Bottom />
         </Card>
     </Container>
+
+    function onEnterPress(event: React.KeyboardEvent<HTMLInputElement>) {
+        if (event.key === 'Enter') {
+            appendPrays()
+        }
+    }
+
+    function handleTodayPray(event: React.ChangeEvent<HTMLInputElement>) {
+        setPray(event.target.value)
+    }
+
+    function appendPrays() {
+        setPrays([
+            ...prays,
+            pray
+        ])
+        setPray("")
+    }
+
+    function scrollToBottom() {
+        animateScroll.scrollToBottom({
+            containerId: "todaypraybody"
+        })
+    }
+
 }
 
 export default Presenter

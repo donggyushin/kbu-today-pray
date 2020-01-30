@@ -65,7 +65,7 @@ const Presenter: React.FC = () => {
         postStudentPray(studentPray, postStudentPrayDispatch)
         setStudentPray({
             name: "",
-            grade: 0,
+            grade: 1,
             prays: []
         })
         setPray("")
