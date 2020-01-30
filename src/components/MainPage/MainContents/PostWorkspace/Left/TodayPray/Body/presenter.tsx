@@ -1,18 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
-import Left from './Left'
-import Right from './Right'
+import Cell from './Cell'
 
 const Container = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    height: 100%;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
 `
 
 const Presenter: React.FC = () => {
     return <Container>
-        <Left />
-        <Right />
+        <Cell />
     </Container>
 }
 

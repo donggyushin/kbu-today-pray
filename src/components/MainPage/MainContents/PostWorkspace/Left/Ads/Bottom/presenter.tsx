@@ -1,18 +1,18 @@
 import React from 'react'
 import styled from 'styled-components'
-import Left from './Left'
-import Right from './Right'
+import { Button } from '@material-ui/core'
 
 const Container = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    height: 100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 `
 
 const Presenter: React.FC = () => {
     return <Container>
-        <Left />
-        <Right />
+        <Button variant="contained" color="primary">
+            추가
+</Button>
     </Container>
 }
 

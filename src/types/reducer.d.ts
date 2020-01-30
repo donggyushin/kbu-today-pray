@@ -32,6 +32,21 @@ export interface ReducerWorkspaceType {
     current: CURRENT_TYPE
 }
 
+export interface ReducerTodayPrayStudentPrayType {
+    name: string
+    grade: number
+    prays: string[]
+}
+
+export interface ReducerTodayPray {
+    year: number
+    month: number
+    day: number
+    studentPray: ReducerTodayPrayStudentPrayType[]
+    ads: string[]
+    todayPrayContent: string[]
+}
+
 export interface ReducerStateType {
     user: ReducerUserType
     dialog: ReducerDialogType
@@ -39,6 +54,7 @@ export interface ReducerStateType {
     leftNavigationBar: ReducerLeftNavigationBar
     location: ReducerLocationType
     workspace: ReducerWorkspaceType
+    todayPrayForPost: ReducerTodayPray
 }
 
 

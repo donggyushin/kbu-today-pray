@@ -1,18 +1,21 @@
 import React from 'react'
 import styled from 'styled-components'
-import Left from './Left'
-import Right from './Right'
 
 const Container = styled.div`
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    height: 100%;
+    display:flex;
+    flex-direction:column;
 `
+
+const Cell = styled.div`
+    padding-top:10px;
+    padding-bottom:10px;
+`
+
+
 
 const Presenter: React.FC = () => {
     return <Container>
-        <Left />
-        <Right />
+        <Cell>광고</Cell>
     </Container>
 }
 

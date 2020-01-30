@@ -6,6 +6,7 @@ import loading from './loading'
 import leftNavigationBar from './leftNavigationBar'
 import location from './location'
 import workspace from './workspace'
+import todayPrayForPost from './todayPrayForPost'
 
 const intialState = {}
 
@@ -15,7 +16,8 @@ const allReducers = combineReducers({
     loading,
     leftNavigationBar,
     location,
-    workspace
+    workspace,
+    todayPrayForPost
 })
 
 // @ts-ignore

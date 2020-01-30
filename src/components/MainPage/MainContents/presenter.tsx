@@ -5,10 +5,12 @@ import { useSelector } from 'react-redux'
 import { ReducerStateType } from '../../../types/reducer'
 import PostWorkspace from './PostWorkspace'
 import ViewWorkspace from './ViewWorkspace'
+import COLORS from '../../../consts/colors'
 
 const Container = styled.div`
     width:100%;
     position:relative;
+    background:${COLORS.almostWhite};
 `
 
 const Presenter: React.FC = () => {
