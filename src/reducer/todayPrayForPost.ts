@@ -1,10 +1,11 @@
 import { ReducerTodayPray, ReducerTodayPrayStudentPrayType } from "../types/reducer";
-import { TODAY_PRAY_FOR_POST_POST_STUDENT_PRAY, TODAY_PRAY_FOR_POST_DELETE_STUDENT_PRAY } from "../actions/types";
+import { TODAY_PRAY_FOR_POST_POST_STUDENT_PRAY, TODAY_PRAY_FOR_POST_DELETE_STUDENT_PRAY, TODAY_PRAY_FOR_POST_POST_TODAY_PRAY } from "../actions/types";
 
 interface ActionType {
     type: string
     studentPray: ReducerTodayPrayStudentPrayType
     index: number
+    todayPrays: string[]
 }
 
 const initialState: ReducerTodayPray = {
@@ -24,8 +25,19 @@ export default function (state: ReducerTodayPray = initialState, action: ActionT
         case TODAY_PRAY_FOR_POST_DELETE_STUDENT_PRAY:
             return deleteStudentPray(state, action)
 
+        case TODAY_PRAY_FOR_POST_POST_TODAY_PRAY:
+            return postTodayPrays(state, action)
+
         default:
             return state
+    }
+}
+
+function postTodayPrays(state: ReducerTodayPray, action: ActionType): ReducerTodayPray {
+    const { todayPrays } = action
+    return {
+        ...state,
+        todayPrayContent: todayPrays
     }
 }
 

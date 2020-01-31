@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Dispatch } from 'react'
 import styled from 'styled-components'
 import ShadowBoxType from '../../../../../../consts/shadowbox'
 import Header from './Header'
 import Body from './Body'
 import Bottom from './Bottom'
 import { animateScroll } from 'react-scroll'
+import { postTodayPray } from '../../../../../../actions/todayPrayForPost'
+import { useDispatch } from 'react-redux'
 
 const Container = styled.div`
     width:100%;
@@ -26,12 +28,17 @@ const Card = styled.div`
     background:white;
 `
 
-
+interface IPostTodayPraysDispatch {
+    type: string
+    todayPrays: string[]
+}
 
 const Presenter: React.FC = () => {
 
     const [prays, setPrays] = useState<string[]>([])
     const [pray, setPray] = useState("")
+
+    const postTodayPrayDispatch = useDispatch<Dispatch<IPostTodayPraysDispatch>>()
 
     useEffect(() => {
         scrollToBottom()
@@ -41,9 +48,15 @@ const Presenter: React.FC = () => {
         <Card>
             <Header pray={pray} handleTodayPray={handleTodayPray} onEnterPress={onEnterPress} />
             <Body prays={prays} />
-            <Bottom />
+            <Bottom addButtonClikced={addButtonClikced} />
         </Card>
     </Container>
+
+    function addButtonClikced() {
+        postTodayPray(prays, postTodayPrayDispatch)
+        setPray("")
+        setPrays([])
+    }
 
     function onEnterPress(event: React.KeyboardEvent<HTMLInputElement>) {
         if (event.key === 'Enter') {

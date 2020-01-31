@@ -8,6 +8,13 @@ const Container = styled.div`
     padding-top:20px;
     display: flex;
     flex-direction: column;
+    overflow-y:scroll;
+`
+
+const PrayCellContainer = styled.div`
+    display:flex;
+    flex-direction:column;
+    overflow-y:scroll;
 `
 
 interface IProps {
@@ -23,11 +30,13 @@ const Presenter: React.FC<IProps> = ({
     studentPray,
     prayOnEnterKeyDown
 }) => {
-    return <Container>
+    return <Container >
         <TextField value={pray} onKeyPress={prayOnEnterKeyDown} onChange={handlePray} id="standard-basic" label="학생기도를 입력해주세요" />
-        {studentPray.prays.map((pray, i) => {
-            return <PrayCell pray={pray} key={i} />
-        })}
+        <PrayCellContainer id="studentPrayBodyContainer">
+            {studentPray.prays.map((pray, i) => {
+                return <PrayCell pray={pray} key={i} />
+            })}
+        </PrayCellContainer>
     </Container>
 }
 

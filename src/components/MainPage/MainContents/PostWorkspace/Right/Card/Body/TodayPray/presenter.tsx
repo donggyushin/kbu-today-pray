@@ -17,7 +17,8 @@ const Label = styled.div`
     border-top:1px solid ${COLORS.weakGray};
 `
 const Text = styled.div`
-    
+    padding-left: 10px;
+    padding-top: 7px;
 `
 
 const Presenter: React.FC = () => {

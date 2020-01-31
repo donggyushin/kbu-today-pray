@@ -1,6 +1,7 @@
 import { CURRENT_TYPE } from '../types/reducer'
 import { WORKSPACE_PUT_CURRENT } from './types'
 import { Dispatch } from 'react'
+
 interface IPutWorkspaceCurrent {
     type: string
     newCurrent: CURRENT_TYPE

@@ -1,4 +1,4 @@
-import React, { useState, Dispatch } from 'react'
+import React, { useState, Dispatch, useEffect } from 'react'
 import styled from 'styled-components'
 import Header from './Header'
 import Body from './Body'
@@ -7,6 +7,8 @@ import ShadowBoxType from '../../../../../../consts/shadowbox'
 import { ReducerTodayPrayStudentPrayType } from '../../../../../../types/reducer'
 import { postStudentPray } from '../../../../../../actions/todayPrayForPost'
 import { useDispatch } from 'react-redux'
+import { animateScroll } from 'react-scroll'
+
 
 const Container = styled.div`
 width:100%;
@@ -44,6 +46,10 @@ const Presenter: React.FC = () => {
         prays: []
     })
 
+    useEffect(() => {
+        scrollToBottom()
+    }, [studentPray.prays])
+
     return <Container>
         <Card>
             <Header
@@ -60,6 +66,12 @@ const Presenter: React.FC = () => {
             <Bottom submitButtonClicked={submitButtonClicked} />
         </Card>
     </Container>
+
+    function scrollToBottom() {
+        animateScroll.scrollToBottom({
+            containerId: "studentPrayBodyContainer"
+        })
+    }
 
     function submitButtonClicked() {
         postStudentPray(studentPray, postStudentPrayDispatch)

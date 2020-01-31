@@ -10,12 +10,25 @@ const Container = styled.div`
     justify-content:center;
 `
 
-const Presenter: React.FC = () => {
+interface IProps {
+    ad: string
+    handleInput: (event: React.ChangeEvent<HTMLInputElement>) => void
+    handleKeyPress: (event: React.KeyboardEvent<HTMLInputElement>) => void
+}
+
+const Presenter: React.FC<IProps> = ({
+    ad,
+    handleInput,
+    handleKeyPress
+}) => {
     return <Container>
         <TextField
             style={{
                 width: '100%'
             }}
+            value={ad}
+            onChange={handleInput}
+            onKeyPress={handleKeyPress}
             id="standard-basic" label="광고" />
     </Container>
 }
