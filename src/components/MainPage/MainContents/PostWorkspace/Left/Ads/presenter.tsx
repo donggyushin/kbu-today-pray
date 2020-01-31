@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Dispatch } from 'react'
 import styled from 'styled-components'
 import ShadowBoxType from '../../../../../../consts/shadowbox'
+import { postAds, IPostAdsDispatch } from '../../../../../../actions/todayPrayForPost'
 import Header from './Header'
 import Body from './Body'
 import Bottom from './Bottom'
 import { animateScroll } from 'react-scroll'
+import { useDispatch } from 'react-redux'
 
 const Container = styled.div`
     width:100%;
@@ -31,6 +33,8 @@ const Presenter: React.FC = () => {
     const [ads, setAds] = useState<string[]>([])
     const [ad, setAd] = useState("")
 
+    const postAdsDispatch = useDispatch<Dispatch<IPostAdsDispatch>>()
+
     useEffect(() => {
         scrollToBottom()
     }, [ads])
@@ -39,9 +43,15 @@ const Presenter: React.FC = () => {
         <Card>
             <Header ad={ad} handleInput={handleInput} handleKeyPress={handleKeyPress} />
             <Body ads={ads} />
-            <Bottom />
+            <Bottom addButtonClicked={addButtonClicked} />
         </Card>
     </Container>
+
+    function addButtonClicked() {
+        postAds(ads, postAdsDispatch)
+        setAds([])
+        setAd("")
+    }
 
     function handleKeyPress(event: React.KeyboardEvent<HTMLInputElement>) {
         if (event.key === 'Enter') {

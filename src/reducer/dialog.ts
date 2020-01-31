@@ -6,7 +6,7 @@ interface ActionType {
     type: string
     title: string
     text: string
-    callBack: (param: any) => void
+    callBack?: (param: any) => void
 }
 
 const initialState: ReducerDialogType = {
@@ -43,6 +43,6 @@ function dialogOn(state: ReducerDialogType, action: ActionType): ReducerDialogTy
         open: true,
         title,
         text,
-        callBack
+        callBack: callBack ? callBack : () => { }
     }
 }

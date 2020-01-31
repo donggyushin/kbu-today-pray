@@ -39,12 +39,13 @@ export interface ReducerTodayPrayStudentPrayType {
 }
 
 export interface ReducerTodayPray {
-    year: number
-    month: number
-    day: number
     studentPray: ReducerTodayPrayStudentPrayType[]
     ads: string[]
     todayPrayContent: string[]
+}
+
+export interface ReducerDatePickerType {
+    open: boolean
 }
 
 export interface ReducerStateType {
@@ -55,6 +56,7 @@ export interface ReducerStateType {
     location: ReducerLocationType
     workspace: ReducerWorkspaceType
     todayPrayForPost: ReducerTodayPray
+    datepicker: ReducerDatePickerType
 }
 
 

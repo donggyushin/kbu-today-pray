@@ -5,16 +5,19 @@ import PrivateRouteComponent from './routes/privateRoute';
 import PublicRouteComponent from './routes/publicRoute';
 import Dialog from './components/Dialog'
 import Loading from './components/Loading';
+import DatePicker from './components/DatePicker';
 
 const App: React.FC = () => {
 
   const isLoggedIn: boolean = useSelector((state: ReducerStateType) => state.user.isLoggedIn)
   const loading: boolean = useSelector((state: ReducerStateType) => state.loading.open)
+  const datePicker: boolean = useSelector((state: ReducerStateType) => state.datepicker.open)
 
   if (isLoggedIn) {
     return <>
       <PrivateRouteComponent />
       <Dialog />
+      {datePicker && <DatePicker />}
       {loading && <Loading />}
     </>
   } else {

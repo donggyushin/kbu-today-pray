@@ -11,7 +11,7 @@ export const dialogOff = (dispatch: Dispatch<IDialogOffDispatch>) => {
     })
 }
 
-interface IDialogInDispatch {
+export interface IDialogInDispatch {
     type: string
     title: string
     text: string

@@ -8,9 +8,13 @@ const Container = styled.div`
     justify-content:center;
 `
 
-const Presenter: React.FC = () => {
+interface IProps {
+    addButtonClicked: () => void
+}
+
+const Presenter: React.FC<IProps> = ({ addButtonClicked }) => {
     return <Container>
-        <Button variant="contained" color="primary">
+        <Button onClick={addButtonClicked} variant="contained" color="primary">
             추가
 </Button>
     </Container>
