@@ -7,7 +7,7 @@ interface ActionType {
 }
 
 const initialState: ReducerWorkspaceType = {
-    current: "POST"
+    current: "VIEW"
 }
 
 export default function (state = initialState, action: ActionType) {

@@ -1,7 +1,7 @@
 import { Dispatch } from "react";
 import { LOADING_ON, LOADING_OFF } from "./types";
 
-interface ILoadingDispatch {
+export interface ILoadingDispatch {
     type: string
 }
 

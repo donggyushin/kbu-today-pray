@@ -18,6 +18,8 @@ interface IPostTodayPrayToServerData {
 }
 
 export const PostTodayPrayToServer = (todayPray: ReducerTodayPray, date: string, dispatch: Dispatch<IPostTodayPrayToServerDispatch>) => {
+
+
     dispatch({
         type: LOADING_ON
     })
