@@ -2,7 +2,19 @@ import { ReducerTodayPrayForViewPraysType } from "../types/reducer";
 import axios from 'axios'
 import { DONGGYU_ENDPOINT } from "../consts/endPoint";
 import { Dispatch } from "react";
-import { LOADING_ON, LOADING_OFF, DIALOG_ON, TODAY_PRAY_FOR_VIEW_GET_PRAYS } from "./types";
+import { LOADING_ON, LOADING_OFF, DIALOG_ON, TODAY_PRAY_FOR_VIEW_GET_PRAYS, TODAY_PRAY_FOR_VIEW_INIT } from "./types";
+
+
+export interface IInitPrays {
+    type: string
+}
+
+export const initPrays = (dispatch: Dispatch<IInitPrays>) => {
+    dispatch({
+        type: TODAY_PRAY_FOR_VIEW_INIT
+    })
+}
+
 
 export interface IGetPraysDispatch {
     type: string

@@ -44,6 +44,7 @@ const Presenter: React.FC<IProps> = ({
     const currentPraysNumber = prays.length
 
 
+
     useEffect(() => {
         if (width > 1300) {
             setGridTemplateColumn("repeat(4,1fr)")

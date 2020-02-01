@@ -1,6 +1,6 @@
 import React, { Dispatch, useState, useEffect } from 'react'
 import styled from 'styled-components'
-import { getPrays, IGetPraysDispatch } from '../../../../actions/todayPrayForView'
+import { getPrays, IGetPraysDispatch, initPrays, IInitPrays } from '../../../../actions/todayPrayForView'
 import { useDispatch } from 'react-redux'
 import CardsContainer from './Container'
 import ReactResizeDetector from 'react-resize-detector';
@@ -19,7 +19,10 @@ const Presenter: React.FC = () => {
 
     const getPraysDispatch = useDispatch<Dispatch<IGetPraysDispatch>>()
 
+    const initDispatch = useDispatch<Dispatch<IInitPrays>>()
+
     useEffect(() => {
+        initPraysFunc()
         callPrays()
     }, [])
 
@@ -34,6 +37,10 @@ const Presenter: React.FC = () => {
         </ReactResizeDetector>
 
     </Container>
+
+    function initPraysFunc() {
+        initPrays(initDispatch)
+    }
 
     function callPrays() {
         getPrays(page, getPraysDispatch)

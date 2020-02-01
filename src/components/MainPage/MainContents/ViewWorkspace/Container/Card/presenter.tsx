@@ -36,7 +36,7 @@ const PrayContents = styled.div`
     -webkit-box-orient: vertical;
     word-wrap:break-word; 
     line-height: 1.3em;
-    height: 3.6em; 
+    height: 5.2em;
     font-weight:100;
 `
 

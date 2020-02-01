@@ -10,12 +10,11 @@ import axios from 'axios'
 import { DONGGYU_ENDPOINT } from '../../consts/endPoint'
 
 const Container = styled.div`
-padding-top:20px;
     display:flex;
     position:absolute;
     top:0;
     left:0;
-    justify-content:center;
+    justify-content: flex-end;
     background:rgba(0,0,0,0.5);
     width:100%;
     height:100%;
@@ -23,23 +22,23 @@ padding-top:20px;
 
 const FromBottomToTop = keyframes`
     from {
-        top:100vh;
+        left:550px;
     }to {
-        top:0;
+        left:0;
     }
 `
 
 const FromTopToBottom = keyframes`
     from {
-        top:0;
+        left:0;
     }to {
-        top:100vh;
+        left:550px;
     }
 `
 
 const Card = styled.div`
     width:550px;
-    height:90vh;
+    height:100%;
     background:white;
     border-radius:4px;
     box-shadow:${ShadowBoxType.typeOne};
@@ -49,12 +48,12 @@ const Card = styled.div`
 
 const DisappearingCard = styled.div`
     width:550px;
-    height:90vh;
+    height:100%;
     background:white;
     border-radius:4px;
     box-shadow:${ShadowBoxType.typeOne};
     position: relative;
-    top:100vh;
+    left:550px;
     animation:${FromTopToBottom} 0.4s;
 `
 
@@ -103,7 +102,7 @@ const Presenter: React.FC = () => {
     }
 
     function callTodayPray() {
-        loadingOn(loadingDispatch)
+
         axios.get(`${DONGGYU_ENDPOINT}todaypray/pray/${todayPrayDetailReducer.id}`)
             .then(res => res.data)
             .then(data => {
@@ -112,7 +111,7 @@ const Presenter: React.FC = () => {
                     error: string,
                     pray: ReducerTodayPrayForViewPraysType
                 }
-                loadingOff(loadingDispatch)
+
 
                 const { ok, error, pray } = data as IData
                 if (ok) {
@@ -125,7 +124,7 @@ const Presenter: React.FC = () => {
                 }
             })
             .catch(err => {
-                loadingOff(loadingDispatch)
+
                 dialogOn("죄송해요", "서버와의 통신도중 예기치 못한 에러가 발생하였어요. ", dialogDispatch, () => {
                     window.location.href = '/'
                 })

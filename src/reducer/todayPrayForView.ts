@@ -1,5 +1,5 @@
 import { ReducerTodayPrayForViewType, ReducerTodayPrayForViewPraysType } from "../types/reducer";
-import { TODAY_PRAY_FOR_VIEW_GET_PRAYS } from "../actions/types";
+import { TODAY_PRAY_FOR_VIEW_GET_PRAYS, TODAY_PRAY_FOR_VIEW_INIT } from "../actions/types";
 
 interface ActionType {
     type: string
@@ -16,8 +16,17 @@ export default function (state: ReducerTodayPrayForViewType = initialState, acti
     switch (action.type) {
         case TODAY_PRAY_FOR_VIEW_GET_PRAYS:
             return getPrays(state, action)
+        case TODAY_PRAY_FOR_VIEW_INIT:
+            return init(state, action)
         default:
             return state
+    }
+}
+
+function init(state: ReducerTodayPrayForViewType, action: ActionType): ReducerTodayPrayForViewType {
+    return {
+        prays: [],
+        praysCount: 0
     }
 }
 
