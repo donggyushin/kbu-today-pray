@@ -58,7 +58,7 @@ export interface ReducerTodayPrayForViewPraysType {
     ads: string[]
     todayPrayContent: string[]
     writer: ReducerTodayPrayForViewWriterType
-    date: Date
+    date: string
     _id: string
 }
 

@@ -2,12 +2,12 @@ import React, { useRef, useEffect, useState, Dispatch } from 'react'
 import styled, { keyframes } from 'styled-components'
 import ShadowBoxType from '../../consts/shadowbox'
 import { close, ICloseDispatch } from '../../actions/todayPrayDetail'
-import { loadingOn, ILoadingDispatch, loadingOff } from '../../actions/loading'
 import { dialogOn, IDialogInDispatch } from '../../actions/dialog'
 import { ReducerTodayPrayForViewPraysType, ReducerStateType } from '../../types/reducer'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { DONGGYU_ENDPOINT } from '../../consts/endPoint'
+import Content from './Content'
 
 const Container = styled.div`
     display:flex;
@@ -69,12 +69,11 @@ const Presenter: React.FC = () => {
             name: "",
             _id: ""
         },
-        date: new Date()
+        date: ""
     })
 
     const wrappedRef = useRef(null)
     const closeDispatch = useDispatch<Dispatch<ICloseDispatch>>()
-    const loadingDispatch = useDispatch<Dispatch<ILoadingDispatch>>()
     const dialogDispatch = useDispatch<Dispatch<IDialogInDispatch>>()
 
     const todayPrayDetailReducer = useSelector((state: ReducerStateType) => state.todayPrayDetail)
@@ -90,14 +89,14 @@ const Presenter: React.FC = () => {
     if (disappearing) {
         return <Container>
             <DisappearingCard>
-                Card detail component
+                <Content pray={prayObj} />
             </DisappearingCard>
         </Container>
     } else {
         return <Container>
             <Card ref={wrappedRef}>
-                Card detail component
-        </Card>
+                <Content pray={prayObj} />
+            </Card>
         </Container>
     }
 
