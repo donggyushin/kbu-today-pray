@@ -4,6 +4,6 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'development') {
     // dev code
     DONGGYU_ENDPOINT = 'http://localhost:4001/api/'
 } else {
-    DONGGYU_ENDPOINT = 'http://15.165.99.75:4001/api/'
+    DONGGYU_ENDPOINT = 'https://pray.kbucard.com:4001/api/'
 }
 
